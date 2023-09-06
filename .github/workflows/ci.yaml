@@ -255,3 +255,17 @@ jobs:
           name: sysdig-dev-${{ matrix.artifact_name }}-x86_64.${{ matrix.artifact_ext }}
           path: |
             build/sysdig-*.${{ matrix.artifact_ext }}
+  build-sysdig-others-ppc64le:
+    name:  build-sysdig-others-ppc64le
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Checkout Sysdig
+        uses: actions/checkout@v3
+        with:
+          arch: ppc64le
+          distro: ubuntu-18.04
+      - name: Build
+        run: |
+          mkdir -p build
+          cd build && cmake -Wno-dev -DBUILD_DRIVER=OFF ..
+          cmake --build . --target package --config Release
