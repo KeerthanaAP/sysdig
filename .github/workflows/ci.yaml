@@ -257,7 +257,7 @@ jobs:
             build/sysdig-*.${{ matrix.artifact_ext }}
   build-sysdig-others-ppc64le:
     name:  build-sysdig-others-ppc64le
-    runs-on: alpine_latest
+    runs-on: ubuntu_latest
     steps:
       - name: Checkout Sysdig
         uses: actions/checkout@v3
