@@ -261,11 +261,13 @@ jobs:
     steps:
       - name: Checkout Sysdig
         uses: actions/checkout@v3
+      - uses: uraimo/run-on-arch-action@v2
+        name: Build sysdig
+        id: build
         with:
           arch: ppc64le
           distro: ubuntu-latest
-      - name: Build
-        run: |
-          mkdir -p build
-          cd build && cmake -Wno-dev -DBUILD_DRIVER=OFF ..
-          cmake --build . --target package --config Release
+          run: |
+            mkdir -p build
+            cd build && cmake -Wno-dev -DBUILD_DRIVER=OFF ..
+            cmake --build . --target package --config Release
