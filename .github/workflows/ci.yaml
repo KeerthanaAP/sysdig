@@ -266,7 +266,7 @@ jobs:
         id: build
         with:
           arch: ppc64le
-          distro: alpine_latest
+          distro: ubuntu_latest
           run: |
             mkdir -p build
             cd build && cmake -Wno-dev -DBUILD_DRIVER=OFF ..
