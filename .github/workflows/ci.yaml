@@ -262,11 +262,11 @@ jobs:
       - name: Checkout Sysdig
         uses: actions/checkout@v3
       - uses: uraimo/run-on-arch-action@v2
-        name: Build sysdig
+        name: Build artifact
         id: build
         with:
           arch: ppc64le
-          distro: ubuntu_latest
+          distro: ubuntu20.04
           run: |
             mkdir -p build
             cd build && cmake -Wno-dev -DBUILD_DRIVER=OFF ..
