@@ -257,13 +257,13 @@ jobs:
             build/sysdig-*.${{ matrix.artifact_ext }}
   build-sysdig-others-ppc64le:
     name:  build-sysdig-others-ppc64le
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout Sysdig
         uses: actions/checkout@v3
         with:
           arch: ppc64le
-          distro: ubuntu-18.04
+          distro: ubuntu-latest
       - name: Build
         run: |
           mkdir -p build
