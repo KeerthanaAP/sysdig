@@ -268,6 +268,7 @@ jobs:
           arch: ppc64le
           distro: ubuntu_devel
           run: |
+            sudo apt install cmake
             mkdir -p build
             cd build && cmake -Wno-dev -DBUILD_DRIVER=OFF ..
             cmake --build . --target package --config Release
