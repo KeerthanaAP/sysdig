@@ -257,7 +257,7 @@ jobs:
             build/sysdig-*.${{ matrix.artifact_ext }}
   build-sysdig-others-ppc64le:
     name:  build-sysdig-others-ppc64le
-    runs-on: ubuntu_devel
+    runs-on: alpine_latest
     steps:
       - name: Checkout Sysdig
         uses: actions/checkout@v3
@@ -266,7 +266,7 @@ jobs:
         id: build
         with:
           arch: ppc64le
-          distro: ubuntu_devel
+          distro: alpine_latest
           run: |
             mkdir -p build
             cd build && cmake -Wno-dev -DBUILD_DRIVER=OFF ..
