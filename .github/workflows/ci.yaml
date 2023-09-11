@@ -268,7 +268,8 @@ jobs:
           arch: ppc64le
           distro: ubuntu_devel
           run: |
-            apt install cmake
+            apt update
+            apt install -y g++ linux-headers cmake libelf-dev pkg-config
             mkdir -p build
             cd build && cmake -Wno-dev -DBUILD_DRIVER=OFF ..
             cmake --build . --target package --config Release
